@@ -222,23 +222,17 @@ export default{
       this.day = new Date().getDate();
     },
     blurEvent(event) {
-      console.log('22', event.path);
       let flag = false;
-      event.path.forEach(element => {
-        console.log(element.id);
-        if (element.id === 'calendar') {
-          flag = flag || true;
-        }
-      });
+      if (event.path) {
+        event.path.forEach(element => {
+          if (element.id === 'calendar') {
+            flag = flag || true;
+          }
+        });
+      }
       if (!flag) {
         this.calendarShow = false;
       }
-
-      /*
-       * SetTimeout(() => {
-       *   this.calendarShow = false;
-       * }, 200);
-       */
     },
     yearLeft() {
       if (this.yearShow) {
