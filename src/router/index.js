@@ -7,6 +7,7 @@ import errorForbid from '../components/error/forbid.vue';
 import errorLose from '../components/error/lose.vue';
 import errorNetless from '../components/error/netless.vue';
 import uapp from '../views/index.vue';
+import canvas1 from '../views/canvas/index.vue';
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       'path': '/uapp',
       'name': 'uapp',
       'component': uapp
+    },
+    {
+      'path': '/canvas',
+      'name': 'canvas1',
+      'component': canvas1
     },
     {
       'path': '/404',

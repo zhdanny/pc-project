@@ -1,14 +1,7 @@
 <template>
   <div id="app">
-    <!-- <el-date-picker
-      v-model="value1"
-      type="monthrange"
-      range-separator="至"
-      start-placeholder="开始月份"
-      end-placeholder="结束月份">
-    </el-date-picker>
-    <el-input type="password" placeholder="请输入密码" v-model="input"
-     :show-password="true"></el-input> -->
+    <router-link to='/uapp'>日历</router-link>
+    <router-link to='/canvas'>canvas</router-link>
     <router-view></router-view>
   </div>
 </template>

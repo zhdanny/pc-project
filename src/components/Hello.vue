@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <router-link to='/uapp'>日历</router-link>
+
   </div>
 </template>
 

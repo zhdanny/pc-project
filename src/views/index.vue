@@ -6,9 +6,13 @@
 
 <script>
 import calendar from './calendar/index';
+import zInput from '../components/z-input';
 export default {
   'name': 'uapp',
-  'components': {calendar},
+  'components': {
+    calendar,
+    zInput
+  },
   data() {
     return {};
   }
@@ -20,5 +24,10 @@ export default {
     // margin: 20px auto;
     text-align: center;
     width: 1200px;
+    .input-test{
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #dedede;
+    }
 }
 </style>

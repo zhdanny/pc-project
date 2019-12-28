@@ -14,6 +14,13 @@ module.exports = {
       src: './src/main.js', //入口js
       inject: 'body', //js在生成html中的注入位置，默认为body标签
       chunks: ['app'] //打包后的文件名，为保持结构清晰，与pages的key保持一致
+    },
+    'barber': {
+      filename: 'barber.html', //入口html文件
+      template: 'index.html', //html文件所引用的模板[多个入口可以共用一个模板]
+      src: './src/barber.js', //入口js
+      inject: 'body', //js在生成html中的注入位置，默认为body标签
+      chunks: ['barber'] //打包后的文件名，为保持结构清晰，与pages的key保持一致
     }
   },
   //通用配置
