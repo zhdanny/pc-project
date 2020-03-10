@@ -8,6 +8,10 @@ import errorLose from '../components/error/lose.vue';
 import errorNetless from '../components/error/netless.vue';
 import uapp from '../views/index.vue';
 import canvas1 from '../views/canvas/index.vue';
+import example from '../views/example/index.vue';
+import example2 from '../views/example2/parent.vue';
+import example3 from '../views/example3/index.vue';
+
 
 Vue.use(Router);
 
@@ -28,6 +32,21 @@ export default new Router({
       'path': '/canvas',
       'name': 'canvas1',
       'component': canvas1
+    },
+    {
+      'path': '/example',
+      'name': 'example',
+      'component': example
+    },
+    {
+      'path': '/example2',
+      'name': 'example2',
+      'component': example2
+    },
+    {
+      'path': '/example3',
+      'name': 'example3',
+      'component': example3
     },
     {
       'path': '/404',

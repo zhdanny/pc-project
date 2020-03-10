@@ -5,7 +5,12 @@
 </template>
 
 <script>
-export default {'name': 'cssTest'};
+export default {
+  'name': 'cssTest',
+  created() {
+
+  }
+};
 </script>
 
 <style lang="scss" scoped>
