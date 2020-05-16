@@ -6,6 +6,7 @@
       <router-link to='/example'>$emit/$on</router-link>
       <router-link to='/example2'>$parent/$children</router-link>
       <router-link to='/example3'>provide/inject</router-link>
+      <router-link to='/css-example'>css-example</router-link>
     </div>
     <router-view></router-view>
   </div>

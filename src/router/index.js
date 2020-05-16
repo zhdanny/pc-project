@@ -11,14 +11,13 @@ import canvas1 from '../views/canvas/index.vue';
 import example from '../views/example/index.vue';
 import example2 from '../views/example2/parent.vue';
 import example3 from '../views/example3/index.vue';
-
+import cssExample from '../views/css-example/index.vue';
 
 Vue.use(Router);
 
 
 export default new Router({
-  'routes': [
-    {
+  'routes': [{
       'path': '/',
       'name': 'Hello',
       'component': Hello
@@ -47,6 +46,11 @@ export default new Router({
       'path': '/example3',
       'name': 'example3',
       'component': example3
+    },
+    {
+      'path': '/css-example',
+      'name': 'css-example',
+      'component': cssExample
     },
     {
       'path': '/404',
