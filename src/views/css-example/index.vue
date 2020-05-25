@@ -50,7 +50,21 @@
     <el-row>
       <el-col :span="4"><div class="title">卡券效果</div></el-col>
       <el-col :span="12">
-        <div class='hollow-one-circle'></div>
+        <div class='hollow-one-circle'>
+          <div class='coupon-content'>
+            <div class='coupon-value'>
+              <div class='value'>
+                <span>200</span>
+                <span class='unit'>元</span>
+              </div>
+            </div>
+            <div class='coupon-info'>
+              <div class='name'>新人满减券</div>
+              <div class='tip'>满800元可用</div>
+              <div class='date'>有效期至2020.06.30</div>
+            </div>
+          </div>
+        </div>
       </el-col>
     </el-row>
     <el-row>
@@ -68,28 +82,52 @@
     <el-row>
       <el-col :span="4"><div class="title">不规则形状阴影</div></el-col>
       <el-col :span="12"><div class="shadow-content">
-        <div class="shadow-dotted shadow-sq">虚线投影</div>
-        <div class="shadow-triangle shadow-sq">三角形投影</div>
-        <div class="circle-square shadow-sq">缺角投影</div>
-        <div class="tip shadow-sq">气泡投影</div>
+        <!-- <div class="shadow-dotted shadow-sq">虚线投影</div> -->
+        <div class="shadow-triangle shadow-sq"></div>
+        <div class="circle-square shadow-sq"></div>
+        <div class="tip shadow-sq"></div>
       </div></el-col>
     </el-row>
     <el-row>
       <el-col :span="4"><div class="title">时间轴</div></el-col>
-      <el-col :span="12"><div class="timeline-content">
-        
-      </div></el-col>
+      <el-col :span="16">
+        <div class="timeline-content">
+          <div v-for='(item, index) in timeLine' :key='index' class="time-line">
+            <div :class="`state-${item.state} state-icon`"></div>
+            <div class="timeline-title">{{item.title}}</div>
+          </div>
+        </div>
+      </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-export default {'name': 'cssExample'};
+export default {
+  'name': 'cssExample',
+  data(){
+    return {
+      timeLine: [{
+        title: '节点：提交审核',
+        state: '1',
+      },{
+        title: '节点：审核失败-提交资料有误，请重新上传',
+        state: '2',
+      },{
+        title: '节点：再次提交审核',
+        state: '1',
+      },{
+        title: '节点：审核通过-同意，已批',
+        state: '3',
+      }]
+    }
+  }
+};
 </script>
 
 <style lang="scss">
 .el-row {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     &:last-child {
       margin-bottom: 0;
     }
@@ -97,7 +135,7 @@ export default {'name': 'cssExample'};
 </style>
 <style lang="scss" scoped>
 .main{
-  padding: 40px;
+  // padding: 40px;
   text-align: left;
 }
 
@@ -112,7 +150,7 @@ export default {'name': 'cssExample'};
   height: 0;
   border-style: solid;
   border-width: 0 25px 40px 25px;
-  border-color: transparent transparent #EE7D37 transparent;
+  border-color: transparent transparent rgb(245, 129, 127) transparent;
 }
 
 /** 倒三角 */
@@ -121,7 +159,7 @@ export default {'name': 'cssExample'};
   height: 0;
   border-style: solid;
   border-width: 40px 25px 0 25px;
-  border-color:  #EE7D37 transparent transparent transparent;
+  border-color:  rgb(245, 129, 127) transparent transparent transparent;
 }
 
 /** 虚线 */
@@ -183,30 +221,97 @@ export default {'name': 'cssExample'};
 
 /** 卡券效果 */
 .hollow-one-circle{
-  width: 300px;
+  margin-left: 200px;
   height: 100px;
+  padding: 22px 15px 22Px 28px;
+  width: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   position: relative;
-  background: radial-gradient(circle at right bottom, transparent 10px, #eee 0) top right /50% 51px no-repeat,
-    radial-gradient(circle at left bottom, transparent 10px, #eee 0) top left / 50% 51px no-repeat,
-    radial-gradient(circle at right top, transparent 10px, #eee 0) bottom right / 50% 51px no-repeat,
-    radial-gradient(circle at left top, transparent 10px, #eee 0) bottom left / 50% 51px no-repeat;
-   filter: drop-shadow(2px 2px 2px rgba(0,0,0,.2));
+  background: #FFFFFF;
+  border-radius: 4px;
+  // background: radial-gradient(circle at right bottom, transparent 12px, #ffffff 0) top right / 51% 100px no-repeat,
+  // radial-gradient(circle at left bottom, transparent 12px, #ffffff 0) top left / 51% 100px no-repeat,
+  // radial-gradient(circle at right top, transparent 12px, #ffffff 0) bottom right / 51% 100px no-repeat,
+  // radial-gradient(circle at left top, transparent 12px, #ffffff 0) bottom left / 51% 100px no-repeat;
+  // filter: drop-shadow(0px 4px 20px rgba(107,107,107,0.12));
+
+  background: radial-gradient(circle at right bottom, transparent 10px, #ffffff 0) top right /50% 51px no-repeat,
+    radial-gradient(circle at left bottom, transparent 10px, #ffffff 0) top left / 50% 51px no-repeat,
+    radial-gradient(circle at right top, transparent 10px, #ffffff 0) bottom right / 50% 51px no-repeat,
+    radial-gradient(circle at left top, transparent 10px, #ffffff 0) bottom left / 50% 51px no-repeat;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,.2));
+   .coupon-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .coupon-value {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    // margin-right: 80px;
+    width: 100px;
+    font-family: PingFangSC-Semibold;
+    font-size: 35px;
+    color: #FA5856;
+    letter-spacing: 0;
+    line-height: 40px;
+
+    .unit {
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      color: #FA5856;
+      letter-spacing: 0;
+      text-align: center;
+      // margin-left: 4px;
+    }
+
+  }
+
+
+  .coupon-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .name {
+      margin-bottom: 10px;
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #333333;
+      letter-spacing: 0;
+      line-height: 16px;
+    }
+    .tip {
+      margin-bottom: 6px;
+    }
+    .date, .tip {
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #999999;
+      letter-spacing: 0;
+      line-height: 12px;
+    }
+  }
 }
 
 /** 阴影 */
 .shadow-content{
   display: flex;
-
+  align-items: center;
   .shadow { 
     width: 100px;
     height: 50px;
     background: #EE7D37;
-    margin: 10px;
+    margin: 10px 20px;
     line-height: 50px;
     text-align: center;
   }
   // 无偏移投影
- .shadow1 {
+  .shadow1 {
     box-shadow: 0 0 12px rgba(238, 125, 55, 0.8);
   }
   // 下侧投影
@@ -253,27 +358,32 @@ export default {'name': 'cssExample'};
     height: 0;
     border-style: solid;
     border-width: 0 50px 50px 50px;
-    border-color: transparent transparent #EE7D37 transparent;
+    border-color: transparent transparent rgb(245, 129, 127) transparent;
     filter:drop-shadow(10px 0px 10px  rgba(238, 125, 55,0.5));
+    margin-right: 50px;
+    margin-left: 100px;
   }
 
   // 右缺圆角阴影
   .circle-square{
     width:100px;
     height:50px;
-    background: radial-gradient(circle at bottom right, transparent 20px, #EE7D37 15px);
+    line-height: 50px;
+    background: radial-gradient(circle at bottom right, transparent 20px, rgb(245, 129, 127) 15px);
     filter: drop-shadow(2px 2px 2px rgba(238, 132, 66, 0.9));
+    margin-right: 50px;
   }
 
   // 信息窗口
   .tip {
     width: 100px;
     height: 30px;
-    border: 1px solid #EE7D37;
+    line-height: 30px;
+    border: 1px solid rgb(245, 129, 127);
     border-radius: 4px;
     position: relative;
     background-color: #fff;
-    filter: drop-shadow(0px 2px 4px rgba(238, 132, 66, 0.9));
+    filter: drop-shadow(0px 2px 4px rgba(245, 129, 127, 0.9));
     &::before {
       content: "";
       width: 0;
@@ -294,7 +404,7 @@ export default {'name': 'cssExample'};
       height: 0;
       border-style: solid;
       border-width: 0 10px 10px 10px;
-      border-color: transparent transparent #EE7D37 transparent;
+      border-color: transparent transparent rgb(245, 129, 127) transparent;
       position: absolute;
       top: -11px;
       left: 0;
@@ -302,6 +412,43 @@ export default {'name': 'cssExample'};
       margin: auto;
       z-index: 1;
     }
+  }
+}
+
+/** 时间轴 */
+.timeline-content{
+  display: flex;
+  .time-line{
+    padding: 10px 10px 10px 20px;
+    position: relative;
+    &::before{
+      content: '';
+      height: 1px;
+      width: calc(100% - 34px);
+      background: #EBEBEB;
+      position: absolute;
+      left: 24px;
+      top: 0;
+    }
+  }
+  .state-icon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -12px;
+    left: 0;
+  }
+  .state-1{
+    background: url('https://static.daojia.com/assets/project/tosimple-pic/fen-zu-7-copy-6bei-fen_1589266208621.png') no-repeat;
+    background-size: cover;
+  }
+  .state-2{
+    background: url('https://static.daojia.com/assets/project/tosimple-pic/12_1589266226040.png') no-repeat;
+    background-size: cover;
+  }
+  .state-3{
+    background: url('https://static.daojia.com/assets/project/tosimple-pic/fen-zu-7-copy-3_1589266140087.png') no-repeat;
+    background-size: cover;
   }
 }
 </style>

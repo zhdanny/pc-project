@@ -20,7 +20,10 @@ export default new Router({
   'routes': [{
       'path': '/',
       'name': 'Hello',
-      'component': Hello
+      'component': Hello,
+      redirect: {
+        path: '/example'
+      }
     },
     {
       'path': '/uapp',
@@ -51,6 +54,12 @@ export default new Router({
       'path': '/css-example',
       'name': 'css-example',
       'component': cssExample
+    },
+    {
+      path: '/drag-example',
+      name: 'drag-example',
+      component: () =>
+        import ('../views/drag-example')
     },
     {
       'path': '/404',

@@ -12,12 +12,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@eife/utils": "^2.0.0",
+    "dj-axios": "^2.0.0",
+    "element-ui": "^2.11.1",
     "vue": "2.5.21",
     "vue-router": "3.0.2",
-    "vuex": "2.5.0",
-    "element-ui": "^2.11.1",
-    "dj-axios": "^2.0.0",
-    "@eife/utils": "^2.0.0"
+    "vuedraggable": "^2.23.2",
+    "vuex": "2.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.3.1",

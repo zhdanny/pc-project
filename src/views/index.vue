@@ -23,7 +23,6 @@ export default {
 .main{
     // margin: 20px auto;
     text-align: center;
-    width: 1200px;
     .input-test{
       height: 30px;
       line-height: 30px;

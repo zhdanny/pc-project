@@ -1,14 +1,27 @@
 <template>
   <div id="app">
     <div class="nav-content">
-      <router-link to='/uapp'>日历</router-link>
-      <router-link to='/canvas'>canvas</router-link>
-      <router-link to='/example'>$emit/$on</router-link>
-      <router-link to='/example2'>$parent/$children</router-link>
-      <router-link to='/example3'>provide/inject</router-link>
-      <router-link to='/css-example'>css-example</router-link>
+      <el-menu
+        :default-active="routePath"
+        class="el-menu-vertical-demo"
+        @select="selectMenu"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b">
+        <div v-for='(item, index) in list' :key='index'>
+          <el-submenu :index='item.url' v-if='item.children'>
+            <template slot="title">
+              <span>{{item.name}}</span>
+            </template>
+            <el-menu-item  v-for="(val, i) in item.children" :key='i' :index='val.url'>{{val.name}}</el-menu-item>
+          </el-submenu>
+          <el-menu-item :index='item.url' v-else>{{item.name}}</el-menu-item>
+        </div>
+      </el-menu>
     </div>
-    <router-view></router-view>
+    <div class="main-content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -20,24 +33,83 @@ export default {
   'components': {Hello},
   data() {
     return {
-      'value1': '',
-      'input': ''
+      list: [{
+        url: '/example',
+        name: 'Vue组件通信实例',
+        children: [{
+          url: '/example',
+          name: '$emit/$on'
+        },{
+          url: '/example2',
+          name: '$parent/$children'
+        },{
+          url: '/example3',
+          name: 'provide/inject'
+        }]
+      },{
+        url: '/css-example',
+        name: 'css3样式技巧实例',
+      },{
+        url: '/uapp',
+        name: '日历实例',
+      },{
+        url: '/canvas',
+        name: 'canvas实例'
+      },{
+        url: '/drag-example',
+        name: '拖拽实例'
+      }]
     };
+  },
+  computed: {
+    routePath(){
+      return this.$route.path
+    }
+  },
+  methods: {
+    handleOpen(){
+
+    },
+    handleClose(){
+
+    },
+    selectMenu(index, indexPath){
+      console.log('index', index, indexPath)
+      this.$router.push({
+        path: index
+      })
+
+    }
   }
 };
 </script>
 
 <style>
+.el-menu{
+  border-right: solid 1px rgb(84, 92, 100) !important;
+}
 @import './style/_reset.scss';
+body{
+  margin: 0;
+}
 #app {
   font-family: PingFangSC-Regular,"Microsoft YaHei",sans-serif;
   text-align: center;
   color: #2c3e50;
   /* margin-top: 60px; */
+  display: flex;
+
 }
 .nav-content{
-  font-size: 14px;
-  padding: 10px;
-  font-size: #666;
+  width: 230px;
+  min-height: 100vh;
+  background: rgb(84, 92, 100);
+  display: inline-block;
+}
+.main-content{
+  width: 1000px;
+  padding: 20px;
+  display: inline-block;
+
 }
 </style>
