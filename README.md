@@ -2,6 +2,14 @@
 
 > pc端练习项目
 
+包含了
+- Vue组件通信例子
+- css3样式技巧
+- 日历组件
+- canvas鼠标画图
+- 拖拽插件例子
+- sql编辑器例子
+
 ## Build Setup
 
 ``` bash

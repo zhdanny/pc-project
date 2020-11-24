@@ -7,7 +7,7 @@ import errorForbid from '../components/error/forbid.vue';
 import errorLose from '../components/error/lose.vue';
 import errorNetless from '../components/error/netless.vue';
 import uapp from '../views/index.vue';
-import canvas1 from '../views/canvas/index.vue';
+import canvas from '../views/canvas/index.vue';
 import example from '../views/example/index.vue';
 import example2 from '../views/example2/parent.vue';
 import example3 from '../views/example3/index.vue';
@@ -32,8 +32,8 @@ export default new Router({
     },
     {
       'path': '/canvas',
-      'name': 'canvas1',
-      'component': canvas1
+      'name': 'CanvasContent',
+      'component': canvas
     },
     {
       'path': '/example',
@@ -60,6 +60,11 @@ export default new Router({
       name: 'drag-example',
       component: () =>
         import ('../views/drag-example')
+    },
+    {
+      path: '/editor',
+      name: 'editor',
+      component: ()=>import('../views/editor')
     },
     {
       'path': '/404',

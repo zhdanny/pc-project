@@ -35,7 +35,7 @@ export default {
     return {
       list: [{
         url: '/example',
-        name: 'Vue组件通信实例',
+        name: 'Vue组件通信例子',
         children: [{
           url: '/example',
           name: '$emit/$on'
@@ -48,16 +48,19 @@ export default {
         }]
       },{
         url: '/css-example',
-        name: 'css3样式技巧实例',
+        name: 'css3样式技巧',
       },{
         url: '/uapp',
-        name: '日历实例',
+        name: '日历组件',
       },{
         url: '/canvas',
-        name: 'canvas实例'
+        name: 'canvas鼠标画图'
       },{
         url: '/drag-example',
-        name: '拖拽实例'
+        name: '拖拽插件例子'
+      },{
+        url: '/editor',
+        name: 'sql编辑器例子'
       }]
     };
   },

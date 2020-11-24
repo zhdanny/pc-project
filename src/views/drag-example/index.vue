@@ -1,7 +1,7 @@
 <template>
   <div style='display: flex;'>
     <div v-for="(item, index) in data" :key='index'  class="drag-content">
-      <!-- <div>一级分类：{{item.title}}</div> -->
+      <div>一级分类：{{item.title}}</div>
       <div class="drag-row">
         <!-- 二级分类： -->
         <draggable v-model="item.child" group="people" @start="drag=true" @end="drag=false">
